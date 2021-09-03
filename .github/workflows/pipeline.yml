@@ -32,9 +32,9 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "web-dev-questions-app"
           heroku_email: "dmkk1@outlook.com" 
-          healthcheck: "https://web-dev-questions-app.herokuapp.com/health"
-          checkstring: "ok"
-          rollbackonhealthcheckfailed: true
+          # healthcheck: "https://web-dev-questions-app.herokuapp.com/health"
+          # checkstring: "ok"
+          # rollbackonhealthcheckfailed: true
       - uses: actions/checkout@v2
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.33.0
