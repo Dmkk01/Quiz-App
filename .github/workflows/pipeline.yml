@@ -20,8 +20,8 @@ jobs:
         uses: jacobtomlinson/gha-find-replace@master
         if: ${{ github.event_name == 'push' && !contains(env.COMMIT_MESSAGES, '#skip') }} 
         with:
-          find: "hostnameValue"
-          replace: ${{ secrets.SQL_HOSTNAME_VALUE }}
+          find: "passwordValue"
+          replace: ${{ secrets.SQL_PASSWORD_VALUE }}
           include: "database/"
       # - uses: actions/setup-node@v1
       #   with:
@@ -40,19 +40,19 @@ jobs:
       #     command: npm run test:e2e
       #     start: npm run start-prod
       #     wait-on: http://localhost:5000
-      # - name: heroku deployment
-      #   uses: akhileshns/heroku-deploy@v3.12.12
-      #   if: ${{ github.event_name == 'push' && !contains(env.COMMIT_MESSAGES, '#skip') }}
-      #   env:
-      #     COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }} 
-      #   with:
-      #     heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-      #     heroku_app_name: "web-dev-questions-app"
-      #     heroku_email: "dmkk1@outlook.com" 
+      - name: heroku deployment
+        uses: akhileshns/heroku-deploy@v3.12.12
+        if: ${{ github.event_name == 'push' && !contains(env.COMMIT_MESSAGES, '#skip') }}
+        env:
+          COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }} 
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "web-dev-questions-app"
+          heroku_email: "dmkk1@outlook.com" 
       #     # healthcheck: "https://fast-thicket-25502.herokuapp.com/health"
       #     # checkstring: "ok"
       #     # rollbackonhealthcheckfailed: true
-      # - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.33.0
         if: ${{ github.event_name == 'push' && !contains(env.COMMIT_MESSAGES, '#skip') }} 
