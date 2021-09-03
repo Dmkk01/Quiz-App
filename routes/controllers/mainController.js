@@ -1,5 +1,5 @@
-const showMain = ({ render }) => {
-    render("main.eta");
+  const showMain = ({ render }) => {
+      render("main.eta");
   };
 
   const health = ({ response }) => {
