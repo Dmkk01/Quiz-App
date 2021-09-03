@@ -21,7 +21,7 @@ jobs:
         if: ${{ github.event_name == 'push' && !contains(env.COMMIT_MESSAGES, '#skip') }} 
         with:
           find: "hostnameValue"
-          replace: `${{ secrets.SQL_HOSTNAME_VALUE }}`
+          replace: ${{ secrets.SQL_HOSTNAME_VALUE }}
           include: "database/"
       # - uses: actions/setup-node@v1
       #   with:
