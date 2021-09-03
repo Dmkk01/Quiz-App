@@ -43,6 +43,7 @@ jobs:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
+          DRY_RUN: true
       # - name: slack
       #   uses: 8398a7/action-slack@v3
       #   if: always()
