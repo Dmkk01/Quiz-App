@@ -44,19 +44,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
           DRY_RUN: true
-      # - name: slack
-      #   uses: 8398a7/action-slack@v3
-      #   if: always()
-      #   with:
-      #     status: custom
-      #     fields: workflow,job,commit,repo,ref,author,took
-      #     custom_payload: |
-      #       {
-      #         attachments: [{
-      #           color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-      #           text: `${process.env.AS_JOB} of ${process.env.AS_REPO} ${{ job.status }} in ${process.env.AS_TOOK}`,
-      #         }]
-      #       }
-      #   env:
-      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
          

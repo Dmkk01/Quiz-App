@@ -12,6 +12,7 @@ const router = new Router();
 
 router.get("/", mainController.showMain);
 router.get("/health", mainController.health);
+router.get("/version", mainController.version);
 router.get("/questions", multiQuestionController.getAllQuestions);
 router.post("/questions", multiQuestionController.addQuestion);
 
