@@ -2,9 +2,9 @@ import { Pool } from "../deps.js";
 
 const CONCURRENT_CONNECTIONS = 2;
 const connectionPool = new Pool({
-  hostname: "hostnameValue",
-  database: "databaseValue",
-  user: "userValue",
+  hostname: "dumbo.db.elephantsql.com",
+  database: "oarcyhft",
+  user: "oarcyhft",
   password: "passwordValue",
   port: 5432,
 }, CONCURRENT_CONNECTIONS);
