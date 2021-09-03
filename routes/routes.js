@@ -11,6 +11,7 @@ import * as questionsApi from "./api/questionsApi.js";
 const router = new Router();
 
 router.get("/", mainController.showMain);
+router.get("/health", mainController.health);
 router.get("/questions", multiQuestionController.getAllQuestions);
 router.post("/questions", multiQuestionController.addQuestion);
 
